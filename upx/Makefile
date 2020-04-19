@@ -11,11 +11,13 @@ PKG_VERSION:=3.96
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-src.tar.xz
-PKG_SOURCE_URL:=https://github.com/upx/upx/releases/v$(PKG_VERSION)/download
+PKG_SOURCE_URL:=https://github.com/upx/upx/releases/download/v$(PKG_VERSION)
 PKG_HASH:=47774df5c958f2868ef550fb258b97c73272cb1f44fe776b798e393465993714
 
 HOST_BUILD_DIR:=$(BUILD_DIR_HOST)/$(PKG_NAME)-$(PKG_VERSION)-src
 HOST_BUILD_DEPENDS:=ucl/host
+
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)-src
 
 include $(INCLUDE_DIR)/host-build.mk
 include $(INCLUDE_DIR)/package.mk
@@ -39,7 +41,7 @@ define Package/upx
   CATEGORY:=Utilities
   DEPENDS:=+libucl +libstdcpp +zlib
   TITLE:=The Ultimate Packer for eXecutables
-  URL:=https://github.com/upx/upx/
+  URL:=https://upx.github.io/
 endef
 
 define Package/upx/description

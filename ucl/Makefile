@@ -15,16 +15,16 @@ PKG_SOURCE_URL:=http://www.oberhumer.com/opensource/ucl/download
 PKG_HASH:=b865299ffd45d73412293369c9754b07637680e5c826915f097577cd27350348
 
 PKG_FIXUP:=autoreconf
+PKG_BUILD_PARALLEL:=1
 PKG_INSTALL:=1
 
-HOST_BUILD_PARALLEL:=1
 HOST_FIXUP:=autoreconf
+HOST_BUILD_PARALLEL:=1
 
 include $(INCLUDE_DIR)/host-build.mk
 include $(INCLUDE_DIR)/package.mk
 
 HOST_CFLAGS += -std=gnu89
-
 TARGET_CFLAGS += -std=gnu89
 
 CONFIGURE_ARGS += \
