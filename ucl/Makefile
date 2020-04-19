@@ -24,6 +24,8 @@ HOST_BUILD_PARALLEL:=1
 include $(INCLUDE_DIR)/host-build.mk
 include $(INCLUDE_DIR)/package.mk
 
+HOST_BUILD_PREFIX:=$(STAGING_DIR_HOST)
+
 HOST_CFLAGS += -std=gnu89
 TARGET_CFLAGS += -std=gnu89
 

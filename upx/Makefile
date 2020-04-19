@@ -23,7 +23,8 @@ include $(INCLUDE_DIR)/host-build.mk
 include $(INCLUDE_DIR)/package.mk
 
 define Host/Compile
-	$(MAKE) UPX_UCLDIR=$(STAGING_DIR_HOST) -C $(HOST_BUILD_DIR)/src \
+	UPX_UCLDIR=$(STAGING_DIR_HOST) \
+	$(MAKE) -C $(HOST_BUILD_DIR)/src \
 		CXXFLAGS_WERROR="" LDFLAGS="$(HOST_LDFLAGS)" \
 		CXX="$(HOSTCXX)"
 endef
