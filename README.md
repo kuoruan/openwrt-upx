@@ -4,7 +4,7 @@ UPX pacakage for OpenWrt
 
 ## Build Guide
 
-- Download and unzip [OpenWrt SDK]("https://downloads.openwrt.org/snapshots/targets/")
+- Download and unzip [OpenWrt SDK](https://downloads.openwrt.org/snapshots/targets/)
 
 - In SDK directory, download Makefiles with git:
 
