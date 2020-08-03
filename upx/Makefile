@@ -7,17 +7,19 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=upx
-PKG_VERSION:=3.96
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-src.tar.xz
-PKG_SOURCE_URL:=https://github.com/upx/upx/releases/download/v$(PKG_VERSION)
-PKG_HASH:=47774df5c958f2868ef550fb258b97c73272cb1f44fe776b798e393465993714
+PKG_MAINTAINER:=Xingwang Liao <kuoruan@gmail.com>
+PKG_LICENSE:=GPL-2.0-only
+PKG_LICENSE_FILES:=COPYING LICENSE
 
-HOST_BUILD_DIR:=$(BUILD_DIR_HOST)/$(PKG_NAME)-$(PKG_VERSION)-src
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_DATE:=2020-07-27
+PKG_SOURCE_VERSION:=ebe4d2b78f873cbfe57788ede0cdcddcfe66412d
+PKG_SOURCE_URL:=https://github.com/upx/upx.git
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_SOURCE_DATE).tar.gz
+
 HOST_BUILD_DEPENDS:=ucl/host
-
-PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)-src
 
 include $(INCLUDE_DIR)/host-build.mk
 include $(INCLUDE_DIR)/package.mk
