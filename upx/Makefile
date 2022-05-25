@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2011-2020 OpenWrt.org
+# Copyright (C) 2011-2022 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -14,8 +14,8 @@ PKG_LICENSE:=GPL-2.0-only
 PKG_LICENSE_FILES:=COPYING LICENSE
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_DATE:=2022-01-15
-PKG_SOURCE_VERSION:=a46b63817a9c6ad5af7cf519332e859f11558592
+PKG_SOURCE_DATE:=2022-03-26
+PKG_SOURCE_VERSION:=a54bef20057d72ab020df3812e90542bdcf56e1f
 PKG_SOURCE_URL:=https://github.com/upx/upx.git
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_SOURCE_DATE).tar.gz
 
