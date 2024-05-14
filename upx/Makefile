@@ -18,7 +18,7 @@ PKG_SOURCE_URL:=https://github.com/upx/upx/releases/download/v$(PKG_VERSION)
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-src.tar.xz
 PKG_HASH:=5ed6561607d27fb4ef346fc19f08a93696fa8fa127081e7a7114068306b8e1c4
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)-src
-PKG_INSTALL:=1
+
 PKG_BUILD_PARALLEL:=1
 
 HOST_BUILD_DEPENDS:=ucl/host
@@ -28,14 +28,11 @@ include $(INCLUDE_DIR)/host-build.mk
 include $(INCLUDE_DIR)/package.mk
 
 define Host/Compile
-	UPX_UCLDIR=$(STAGING_DIR_HOST) \
-	$(MAKE) -C $(HOST_BUILD_DIR)/src \
-		CXXFLAGS_WERROR="" LDFLAGS="$(HOST_LDFLAGS)" \
-		CXX="$(HOSTCXX)"
+	$(call Host/Compile/Default,build/release)
 endef
 
 define Host/Install
-	$(CP) $(HOST_BUILD_DIR)/src/upx.out $(STAGING_DIR_HOST)/bin/upx
+	$(CP) $(HOST_BUILD_DIR)/build/release/upx $(STAGING_DIR_HOST)/bin/upx
 endef
 
 define Host/Clean
@@ -58,11 +55,13 @@ or other drawbacks for most of the formats supported, because of in-place
 decompression.
 endef
 
-MAKE_PATH := src
+define Build/Compile
+	$(call Build/Compile/Default,build/release)
+endef
 
 define Package/upx/install
 	$(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/upx.out $(1)/usr/bin/upx
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/build/release/upx $(1)/usr/bin/upx
 endef
 
 $(eval $(call HostBuild))
