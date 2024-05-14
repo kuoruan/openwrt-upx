@@ -21,7 +21,6 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)-src
 
 PKG_BUILD_PARALLEL:=1
 
-HOST_BUILD_DEPENDS:=ucl/host
 HOST_BUILD_DIR:=$(BUILD_DIR_HOST)/$(PKG_NAME)-$(PKG_VERSION)-src
 
 include $(INCLUDE_DIR)/host-build.mk
@@ -42,7 +41,7 @@ endef
 define Package/upx
   SECTION:=utils
   CATEGORY:=Utilities
-  DEPENDS:=+libucl +libstdcpp +zlib
+  DEPENDS:=+libstdcpp +zlib
   TITLE:=The Ultimate Packer for eXecutables
   URL:=https://upx.github.io/
 endef
